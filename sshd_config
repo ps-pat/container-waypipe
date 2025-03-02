@@ -1,0 +1,9 @@
+HostKey /ssh/host_ca_key
+HostCertificate /ssh/host_ca_key-cert.pub
+TrustedUserCAKeys /ssh/user_ca_key.pub
+
+AuthenticationMethods publickey
+PermitRootLogin no
+PasswordAuthentication no
+
+PrintMotd no
