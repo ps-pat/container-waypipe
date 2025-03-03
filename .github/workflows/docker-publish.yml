@@ -43,6 +43,9 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3.9.0
 
@@ -54,7 +57,7 @@ jobs:
           file: "Containerfile"
           push: true
           labels: ${{ steps.meta.outputs.labels }}
-          ## Don't ask me
+          platforms: linux/amd64,linux/arm64
           tags: |
             ${{ env.GITHUB_TAG }}:latest
             ${{ env.GITHUB_TAG }}:${{ github.ref_name }}
