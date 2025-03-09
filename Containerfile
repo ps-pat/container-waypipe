@@ -1,4 +1,4 @@
-FROM docker.io/alpine:latest
+FROM docker.io/alpine:3.21.3
 LABEL maintainer="Patrick Fournier p_fournier@hushmail.com"
 
 RUN apk add --no-cache alpine-conf shadow openssh waypipe
