@@ -3,7 +3,7 @@ This container runs an ssh server and has [waypipe](https://gitlab.freedesktop.o
 
 ## One-liner
 ```bash
-podman run --rm -p 9022:22 -v ssh:/ssh/ --name waypipe ghcr.io/ps-pat/waypipe:latest
+podman run --rm -p 9022:22 -v ssh:/ssh/ --name waypipe ghcr.io/ps-pat/container-waypipe:latest
 ```
 where `ssh` is a directory containing the files listed in the next section. This will launch the latest build of the container and expose the ssh server on port 9022. You can log into it as user `user`
 ```bash
@@ -11,6 +11,9 @@ ssh -p 9022 user@localhost
 ```
 
 Images are also available on [Dockerhub](https://hub.docker.com/r/patfou/container-waypipe).
+
+## What about X?
+The image runs a full-fledged openssh server. X11 forwarding should work as well if needed.
 
 ## Authentication
 By default, the container only accepts connection from user `user` and authentication via certificate authority (CA). This means that your user key must be signed with `user` as one of its principals. This is easily modified by building a custom image. In any case, the following three files are required:
